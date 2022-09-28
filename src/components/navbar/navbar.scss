@@ -1,0 +1,459 @@
+.navbar {
+    height: 70px;
+    background-color: #283d98;
+}
+
+#navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .free-shipping {
+        color: white;
+        width: 23%;
+    }
+    .all__shop__list {
+        position: relative;
+        height: 70px;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s linear;
+        &:hover {
+            background-color: #fcbe00;
+            transition: all 0.3s linear;
+        }
+
+        .biMenu {
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+
+            .bix {
+                font-size: 30px;
+            }
+        }
+
+        .left__sub__menu {
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.2s linear;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 160px);
+            // background-color: #dfe4ea;
+            background-color: whitesmoke;
+            z-index: 12;
+
+            .compChevron {
+                position: relative;
+                display: inline-block;
+                left: 90px;
+            }
+            .tvChevron {
+                position: relative;
+                left: 85px;
+            }
+
+            li {
+                padding: 0 10px;
+                width: 100%;
+                a {
+                    color: #666;
+                    display: block;
+                    width: 100%;
+                    // width: 230px;
+                    border-bottom: 1px solid #e1e1e1;
+                    line-height: 43px;
+                    padding-left: 15px;
+                }
+            }
+
+            .coputers__li {
+                position: relative;
+                width: 100%;
+
+                .computer-sub-menu {
+                    visibility: hidden;
+                    opacity: 0;
+                    position: absolute;
+                    left: 110%;
+                    top: 0;
+                    width: 680px;
+                    height: calc(100vh - 160px);
+                    // background-color: #dfe4ea;
+                    background-color: #ffffff;
+                    border-top: 1px solid #fcbe00;
+                    transition: 0.3s linear;
+
+                    a {
+                        border: none;
+                        line-height: 33px;
+                        width: 200px;
+                        padding: 0;
+                        transition: 0.3s ease-in-out;
+                    }
+
+                    .top {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        z-index: 5;
+                        margin-left: 20px;
+
+                        .left__products {
+                            position: relative;
+                            top: 50px;
+
+                            .pages__links {
+                                a {
+                                    &:hover {
+                                        color: #fcbe00;
+                                        transform: translateX(10px);
+                                        transition: 0.3s ease-in-out;
+                                    }
+                                }
+                            }
+                        }
+
+                        .right__products {
+                            margin-left: 30px;
+
+                            .flexon__links {
+                                a {
+                                    &:hover {
+                                        color: #fcbe00;
+                                        transform: translateX(10px);
+                                        transition: 0.3s ease-in-out;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .bottom_img {
+                        width: 340px;
+                        height: 300px;
+                        position: relative;
+                        bottom: 110px;
+                        right: -50%;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            z-index: -3;
+                        }
+                    }
+                }
+
+                &:hover .computer-sub-menu {
+                    visibility: visible;
+                    opacity: 1;
+                    left: 100%;
+                    transition: 0.3s linear;
+                }
+            }
+        }
+
+        .left__sub__menu.active {
+            visibility: visible;
+            opacity: 1;
+            transition: 0.2s linear;
+        }
+
+        .tv_li {
+            position: relative;
+
+            &:hover .tv__sub__menu {
+                opacity: 1;
+                visibility: visible;
+                left: 100%;
+                transition: 0.3s ease-in-out;
+            }
+        }
+
+        .tv__sub__menu {
+            position: absolute;
+            width: 800px;
+            height: calc(100vh - 160px);
+            background-color: #ffffff;
+            left: 110%;
+            top: -43px;
+            border-top: 1px solid #fcbe00;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease-in-out;
+
+            h3 {
+                color: black;
+            }
+
+            .tv_left_side {
+                width: 50%;
+                margin-left: 20px;
+
+                .tv_top,
+                .tv_bottom {
+                    margin-top: 10px;
+                    gap: 20px;
+                    width: 100%;
+                }
+                .wrap3 {
+                    width: 300px;
+                }
+
+                a {
+                    padding: 0;
+                    line-height: 33px;
+                    border: none;
+                    color: #666;
+                    transition: 0.3s linear;
+                    &:hover {
+                        color: #fcbe00;
+                        transform: translateX(10px);
+                        transition: 0.3s linear;
+                    }
+                }
+            }
+
+            .tv__right_side {
+                width: 20%;
+                // height: 100%;
+                margin-top: 20px;
+                img{
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .navbar__menu {
+        height: 70px;
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        li {
+            margin: 0 10px;
+            line-height: 70px;
+            position: relative;
+            cursor: pointer;
+            a {
+                color: white;
+                transition: 0.2s ease-in-out;
+                font-size: 15px;
+                &:hover {
+                    color: #fcbe00;
+                }
+            }
+        }
+
+        .dropDown__home {
+            position: absolute;
+            background-color: #ffffff;
+            left: 0;
+            top: 90px;
+            width: 400px;
+            height: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease-in-out;
+            z-index: 5;
+            a {
+                display: block;
+                line-height: 35px;
+                color: #666;
+            }
+
+            .left_dropDown {
+                display: flex;
+                width: 50%;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .right_dropDown {
+                display: flex;
+                width: 50%;
+                align-items: center;
+                flex-direction: column;
+            }
+        }
+
+        .home_li {
+            &:hover {
+                .dropDown__home {
+                    visibility: visible;
+                    opacity: 1;
+                    transition: 0.3s ease-in-out;
+                    top: 70px;
+                }
+            }
+        }
+
+
+        // shopdropdown
+        .shop__li {
+            position: relative;
+
+            &:hover .shop__dropDown {
+                opacity: 1;
+                visibility: visible;
+                top: 70px;
+                transition: 0.3s ease-in-out;
+            }
+        }
+        .shop__dropDown {
+            position: absolute;
+            width: 1200px;
+            height: calc(100vh - 160px);
+            left: -380px;
+            top: 100px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s linear;
+            z-index: 5;
+            opacity: 0;
+            visibility: hidden;
+            a {
+                display: block;
+                line-height: 30px;
+                width: 200px;
+                color: #666;
+            }
+
+            .shop__top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .shop__links {
+                    display: flex;
+                    width: 70%;
+                    a {
+                        display: block;
+                        line-height: 35px;
+                    }
+                }
+
+                .shop__img {
+                    width: 30%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .shop__botton_sale {
+                text-align: center;
+                background-color: rgb(151, 30, 30);
+                width: 100%;
+                color: white;
+                line-height: 60px;
+                margin-bottom: 10px;
+            }
+        }
+
+        // pageDropdown
+
+        .page_li {
+            position: relative;
+            &:hover .page__dropDown {
+                visibility: visible;
+                opacity: 1;
+                transition: 0.3s linear;
+                top: 70px;
+            }
+        }
+        .page__dropDown {
+            width: 200px;
+            height: 250px;
+            position: absolute;
+            top: 100px;
+            left: -30px;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffff;
+            text-align: left;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s linear;
+            z-index: 5;
+            a {
+                display: block;
+                color: #666;
+                line-height: 35px;
+            }
+        }
+
+        // blod dropDown
+
+        .blog_li {
+            position: relative;
+
+            &:hover .blog__dropDown {
+                opacity: 1;
+                visibility: visible;
+                transition: 0.3s linear;
+                top: 70px;
+            }
+        }
+        .blog__dropDown {
+            position: absolute;
+            width: 250px;
+            height: 240px;
+            top: 100px;
+            left: -30px;
+            display: flex;
+            flex-direction: column;
+            padding-left: 15px;
+            padding-top: 15px;
+            text-align: left;
+            background-color: #ffff;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s linear;
+            z-index: 5;
+            a {
+                display: block;
+                line-height: 30px;
+                color: #666;
+            }
+        }
+    }
+
+    // mobile divice
+    @media screen and (max-width: 1200px) {
+        .all__shop__list {
+            display: none;
+        }
+
+        .navbar__menu{
+            display: none;
+        }
+        .free-shipping{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .navbar{
+        display: none;
+    }
+}

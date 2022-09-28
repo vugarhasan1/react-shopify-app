@@ -1,0 +1,16 @@
+
+.wishlist{
+
+    .wishlist__empty{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 100px;
+
+        .tbHeart{
+            font-size: 100px;
+            color: #666;
+        }
+    }
+}

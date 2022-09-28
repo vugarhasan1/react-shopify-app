@@ -1,0 +1,170 @@
+#hero {
+    background-color: #283d98;
+    width: 100%;
+    height: auto;
+    border-top: 1px solid rgba(245, 245, 245, 0.625);
+
+    .slider {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        .mainSlider {
+            display: flex !important;
+            justify-content: center;
+            // justify-content: space-between;
+            .image {
+                width: 100%;
+                height: auto;
+                outline: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .slider-text {
+                position: relative;
+                flex: 0 0 auto;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                left: 150px !important;
+                z-index: 2;
+                .hot-deal {
+                    background-color: #fcbe00;
+                    font-size: 12px;
+                    border-radius: 3px;
+                    // width: 90px;
+                    padding: 0 15px;
+                    line-height: 30px;
+                    text-align: center;
+                    font-weight: 500;
+                    margin: 20px auto;
+                }
+
+                h3 {
+                    position: relative;
+                    color: white;
+                    font-size: 2.3rem;
+                    // width: 300px;
+                    font-weight: 300;
+                    outline: none;
+                }
+
+                h2 {
+                    color: white;
+                    font-size: 2.4rem;
+                    font-weight: 400;
+                    outline: none;
+                }
+                .info {
+                    color: white;
+                }
+                .btn-discover {
+                    line-height: 45px;
+                    width: 180px;
+                    margin: 30px auto;
+                    border: non;
+                    cursor: pointer;
+                    transition: 0.2s linear;
+                    outline: none;
+
+                    &:hover {
+                        background-color: #fcbe00;
+                        transition: 0.2s linear;
+                    }
+                    &:focus {
+                        outline: none;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 1230px) {
+            .image {
+                position: relative;
+                right: 200px !important;
+                width: 200%;
+                height: auto;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            .mainSlider {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .slider-text {
+                    justify-content: flex-start !important;
+                    flex-direction: column;
+                    align-items: center;
+                    // left: 0 !important;
+                    h3 {
+                        font-size: 1.2rem;
+                    }
+
+                    h2 {
+                        font-size: 1.4rem !important;
+                    }
+                }
+
+                .image {
+                    width: 100%;
+                    height: auto;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+///append dots
+.buttonsBar {
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+    padding: 0;
+    border-radius: 40px;
+    width: 120px;
+    text-align: center;
+
+    li {
+        list-style: none;
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3px;
+        padding: 0;
+
+        button {
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            color: transparent;
+            cursor: pointer;
+            display: block;
+            height: 8px;
+            width: 10px;
+            border-radius: 4.5px;
+            display: block;
+        }
+    }
+
+    li.slick-active button {
+        background-color: white;
+        width: 25px;
+        height: 8px;
+    }
+}

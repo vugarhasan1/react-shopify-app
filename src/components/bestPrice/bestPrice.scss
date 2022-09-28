@@ -1,0 +1,125 @@
+#best__price {
+    padding: 40px 0;
+    overflow-x: auto;
+    .thePrices {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // gap: 20px;
+        .pricePhoto {
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s linear;
+            .image_text {
+                height: 200px;
+                width: 450px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            .h3_p {
+                position: absolute;
+                top: 40px;
+                left: 30px;
+                color: white;
+
+                h3 {
+                    font-weight: 500;
+                    font-size: 20px;
+                }
+                p {
+                    margin-top: 15px;
+                }
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                transition: all 0.2s linear;
+                z-index: 2;
+            }
+
+            .span1 {
+                position: absolute;
+                display: inline-block;
+                width: 100%;
+                height: 0;
+                top: 0;
+                left: 0;
+                background-color: #ffffff;
+                opacity: 0.1;
+                transition: 0.3s linear;
+                z-index: 2;
+            }
+
+            .span2 {
+                position: absolute;
+                display: inline-block;
+                width: 100%;
+                height: 0;
+                bottom: 0;
+                left: 0;
+                background-color: #ffffff;
+                opacity: 0.1;
+                transition: 0.3s linear;
+            }
+            .span3 {
+                position: absolute;
+                display: inline-block;
+                width: 0;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: #ffffff;
+                opacity: 0.1;
+                transition: 0.3s linear;
+            }
+            .span4{
+                position: absolute;
+                display: inline-block;
+                width: 0;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: #ffffff;
+                opacity: 0.1;
+                transition: 0.3s linear;
+            }
+
+            &:hover .span1 {
+                height: 50%;
+                transition: 0.3s linear;
+            }
+            &:hover .span2 {
+                height: 50%;
+                transition: 0.3s linear;
+            }
+            &:hover .span3{
+                width: 50%;
+                transition: 0.3s linear;
+            }
+            &:hover .span4{
+                width: 50%;
+                transition: 0.3s linear;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1350px) {
+        .thePrices {
+            gap: 15px;
+            .pricePhoto {
+                .image_text {
+                    width: 370px;
+                }
+            }
+        }
+    }
+}

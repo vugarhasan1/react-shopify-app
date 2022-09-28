@@ -1,0 +1,282 @@
+#mainSlider {
+    position: relative;
+    .products__slider {
+        padding: 15px 0;
+        .slider {
+            padding: 15px 0;
+            // height: 300px;
+            .card {
+                position: relative;
+                height: 400px;
+                width: 300px;
+                // padding: 10px;
+                cursor: pointer;
+                transition: 0.3s linear;
+                .image {
+                    width: 200px;
+                    height: 200px;
+                    // padding: 20px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        &:hover {
+                            background-color: none !important;
+                        }
+                    }
+                }
+
+                .card-content {
+                    display: flex;
+                    flex-direction: column;
+                    height: auto;
+                    gap: 5px;
+
+                    .card-title {
+                        color: #0068c9;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                    .redLine {
+                        display: block;
+                        position: relative;
+                        width: 100%;
+                        height: 8px;
+                        border-radius: 5px;
+                        background-color: #ebebeb;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            height: 100%;
+                            width: 75%;
+                            top: 0;
+                            left: 0;
+                            background-color: #cc1414;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    .sold-available {
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 13px;
+                    }
+                }
+
+                .icons {
+                    position: absolute;
+                    top: 20px;
+                    right: -40px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    transition: 0.3s linear;
+
+                    .icon {
+                        position: relative;
+                        display: block;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        text-align: center;
+                        background-color: rgb(201, 201, 201);
+                        z-index: 3;
+
+                        &:hover {
+                            background-color: #ffa200;
+                            transition: 0.3s linear;
+                        }
+                    }
+                }
+                .btn-card {
+                    position: relative;
+                    margin: 0 auto;
+                    top: 150px;
+                    // top: 0;
+                    width: 165px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    height: 45px;
+                    line-height: 45px;
+                    color: black;
+                    background-color: #fcb200;
+                    transition: 0.3s linear;
+                    z-index: 3;
+                    &:hover {
+                        background-color: #fcb200;
+                    }
+                }
+
+                &:hover .btn-card {
+                    transition: 0.3s linear;
+                    top: 5px;
+                }
+
+                .card-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 0;
+                    background-color: #ffffff;
+                    opacity: 0.2;
+                    transition: 0.3s linear;
+                }
+
+                &:hover .icons {
+                    right: 20px;
+                    transition: all 0.3s linear;
+                }
+
+                &:hover .card-overlay {
+                    height: 120%;
+                    transition: 0.3s linear;
+                }
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            .card {
+                width: 24%;
+                height: 450px !important;
+                .image {
+                    width: 100% !important;
+                    height: 100% !important;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .card-title {
+                    font-size: 15px !important;
+                    font-weight: 600;
+                }
+
+                .btn-card {
+                    width: 100% !important;
+                    margin-left: 0 !important;
+                }
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            .card {
+                width: 33% !important;
+                min-width: 250px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                min-width: 250px;
+                width: 100% !important;
+                height: auto !important;
+                .card-content {
+                    .btn-card {
+                        top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .slick-next {
+        display: block !important;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: #ffa200;
+        color: white;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) !important;
+        opacity: 0 !important;
+        transition: 0.3s linear;
+    }
+
+    &:hover .slick-next {
+        opacity: 1 !important;
+        transition: 0.3s linear;
+    }
+
+    .slick-prev {
+        display: block !important;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: #ffa200;
+        // color: white;
+        color: #666 !important;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%) !important;
+        z-index: 2;
+        opacity: 0;
+        transition: 0.3s linear;
+    }
+    &:hover .slick-prev {
+        opacity: 1 !important;
+        transition: 0.3s linear;
+    }
+
+    .viewPopUp {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.45);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: -1;
+        z-index: -5;
+        visibility: hidden;
+        transition: 0.3s linear;
+        .content {
+            width: 800px;
+            height: 500px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            display: flex;
+            .product-info {
+                // background-color: teal;
+                width: 95%;
+                height: 100%;
+            }
+
+            .close-popUp {
+                position: relative;
+                right: -5px;
+                top: 0;
+                .bix {
+                    width: 100%;
+                    border-radius: 3px;
+                    height: 35px;
+                    line-height: 35px;
+                    text-align: center;
+                    background-color: #fcb200;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .viewPopUp.show {
+        opacity: 1;
+        visibility: visible;
+        z-index: 999;
+        transition: 0.3s linear;
+    }
+}
