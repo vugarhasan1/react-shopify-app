@@ -1,5 +1,6 @@
 import React from 'react'
 import './bottomMenu.scss';
+import {Link} from 'react-router-dom';
 import {BiUser, BiGridAlt, BiHomeAlt, BiHeart, BiShoppingBag} from 'react-icons/bi';
 
 
@@ -10,20 +11,20 @@ const BottomMenu = () => {
         <section id='bottomMenu'>
             <div className="bottomMenuWrapper">
                 <div className="menu__icons">
-                    <div className="icon__homePage">
+                    <div className="icon__homePage icon">
                         <BiHomeAlt/>
                     </div>
-                    <div className="icon__collection">
+                    <div className="icon__collection icon">
                         <BiGridAlt/>
                     </div>
-                    <div className="icon__shopList">
+                    <Link className="icon__shopList icon" to='/shoplist'>
                         <BiShoppingBag/>
-                    </div>
-                    <div className="icon__wishList">
+                    </Link>
+                    <div className="icon__wishList icon">
                         <BiHeart/>
                     </div>
 
-                    <div className="icon__account">
+                    <div className="icon__account icon">
                         <BiUser/>
                     </div>
                 </div>

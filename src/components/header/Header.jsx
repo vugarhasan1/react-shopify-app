@@ -10,17 +10,20 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { RegisterPopUp, Wishlist, ShoppingList } from '../../components/index';
 import { useSelector } from 'react-redux';
+import { products } from '../../data/products';
 
 
 const Header = () => {
 
-    const cart = useSelector((store) => store.cart)
+    const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
     const [headerMenu, setHeaderMenu] = useState(false);
     const [expanded, setExpanded] = useState(false);
     const [popUp, setPopUp] = useState(true);
     const [wishList, setWishList] = useState(false);
     const [shopList, setShopList] = useState(false);
+
+    const [inp, setInp] = useState(products)
 
     // handleChane(accordion)
     const handleChange = (panel) => (event, isExpanded) => {
@@ -48,6 +51,17 @@ const Header = () => {
         setShopList(!shopList)
     }
 
+    ///handleSearch
+
+    const handleSearch = (e) => {
+        const searchItem = e.target.value;
+        const searchProduct = products.filter(item => item.title.toLowerCase().includes(searchItem.toLowerCase()))
+        setInp(searchProduct)
+
+        console.log(searchProduct);
+    }
+
+
     return (
         <div className='header'>
             <div className="container header__navbar">
@@ -70,7 +84,7 @@ const Header = () => {
                     </div>
 
                     <div className="search__input">
-                        <input type="text" className='inpt_search_item' placeholder='Search..' />
+                        <input type="text" className='inpt_search_item' placeholder='Search...' />
                         <button><BiSearch /></button>
                     </div>
 
@@ -258,7 +272,7 @@ const Header = () => {
                             className='searchProductsInp'
                             type="text"
                             placeholder='Search for products...'
-
+                            onChange={(e) => handleSearch(e)}
                         />
                         <button className='navbar__btn' type='button'> <span className='searchSp'>Search</span> <BiSearch /></button>
                     </div>
@@ -289,7 +303,7 @@ const Header = () => {
                     {/* shoplist */}
                     <div className='navbar__shopList' onClick={handleShopList}>
                         <div className="shopCart navbar__icons">
-                            <BiShoppingBag /> <sup>{cart.cartItems.length}</sup>
+                            <BiShoppingBag /> <sup>{totalQuantity}</sup>
                         </div>
                         <div className="yourCart">
                             <span className='top-span'>Your Cart</span>
@@ -326,7 +340,7 @@ const Header = () => {
                         <div className="icon_bix">
                             <BiX className='bix' onClick={handleShopList} />
                         </div>
-                    </div> 
+                    </div>
                     <ShoppingList />
                     {/* {/* <p className="freeShipping">Spend $500.00 to Free Shipping</p> */}
                 </div>

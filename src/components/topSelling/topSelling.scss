@@ -1,4 +1,5 @@
-.topSellingProducts {
+
+#topSellingProducts {
     padding: 20px 0;
 
     .capter__products {
@@ -50,6 +51,14 @@
                 &:hover::after{
                     display: block;
                 }
+            }
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .capter__products{
+            .products-type{
+                display: none;
             }
         }
     }

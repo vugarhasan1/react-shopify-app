@@ -7,14 +7,14 @@
             // height: 300px;
             .card {
                 position: relative;
-                height: 400px;
+                height: 430px;
                 width: 300px;
                 // padding: 10px;
                 cursor: pointer;
                 transition: 0.3s linear;
-                .image {
+                .image{
                     width: 200px;
-                    height: 200px;
+                    height: 1500px;
                     // padding: 20px;
                     img {
                         width: 100%;
@@ -57,9 +57,21 @@
                         }
                     }
 
+                    .normal-price{
+                        color: red;
+                        font-weight: 600;
+                    }
+
+                    .sale{
+                        margin-left: 60px;
+                        color: #666;
+                        font-size: 13px;
+                        font-weight: 500;
+                    }
+
                     .sold-available {
                         display: flex;
-                        justify-content: space-between;
+                        justify-content: space-around;
                         font-size: 13px;
                     }
                 }
@@ -89,6 +101,47 @@
                         }
                     }
                 }
+
+                .status-hot {
+                    position: absolute;
+                    display: block;
+                    width: 50px;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    top: 10px;
+                    left: 15px;
+                    font-size: 12px;
+                    // background-color: rgb(14, 164, 14);
+                    color: white;
+                }
+
+                .status-new {
+                    position: absolute;
+                    display: block;
+                    width: 50px;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    top: 10px;
+                    left: 15px;
+                    font-size: 12px;
+                    color: white;
+                }
+
+                .product-percent {
+                    position: absolute;
+                    display: block;
+                    width: 50px;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    top: 10px;
+                    left: 15px;
+                    font-size: 12px;
+                    color: white;
+                }
+
                 .btn-card {
                     position: relative;
                     margin: 0 auto;
@@ -102,9 +155,17 @@
                     color: black;
                     background-color: #fcb200;
                     transition: 0.3s linear;
-                    z-index: 3;
+                    z-index: 22;
                     &:hover {
                         background-color: #fcb200;
+                    }
+                    &:disabled {
+                        pointer-events: all;
+                        cursor: not-allowed;
+                    }
+                    &:disabled {
+                        pointer-events: none;
+                        cursor: not-allowed;
                     }
                 }
 
@@ -120,13 +181,14 @@
                     width: 100%;
                     height: 0;
                     background-color: #ffffff;
-                    opacity: 0.2;
+                    opacity: 0.3;
                     transition: 0.3s linear;
                 }
 
                 &:hover .icons {
                     right: 20px;
                     transition: all 0.3s linear;
+                    z-index: 3;
                 }
 
                 &:hover .card-overlay {
@@ -171,6 +233,7 @@
         @media screen and (max-width: 768px) {
             .card {
                 width: 50%;
+                height: 400px;
             }
         }
 
@@ -179,9 +242,20 @@
                 min-width: 250px;
                 width: 100% !important;
                 height: auto !important;
+                .card-image {
+                    width: 200px;
+                    height: 200px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
                 .card-content {
                     .btn-card {
                         top: 0;
+                        width: 80% !important;
+                        // margin: 0 auto !important;
                     }
                 }
             }
@@ -250,14 +324,68 @@
             border-radius: 10px;
             display: flex;
             .product-info {
-                // background-color: teal;
-                width: 95%;
+                width: 500px;
                 height: 100%;
+                display: flex;
+                flex: 1;
+                justify-content: space-between;
+                padding-top: 15px;
+                .left-img {
+                    width: 300px;
+                    height: 500px;
+                    flex: 1;
+                    .image {
+                        width: 100%;
+                        height: 100%;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                }
+
+                .right-info {
+                    // background-color: #fff9f9;
+                    // width: 100% !important;
+                    width: 300px;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    padding-left: 20px;
+                    flex: 1;
+                    .title {
+                        color: #0068c9;
+                        font-size: 23px;
+                        font-weight: 600;
+                    }
+
+                    .price {
+                        color: red;
+                        font-size: 20px;
+                        font-weight: 500;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid #6666;
+                    }
+
+                    .btn {
+                        button {
+                            line-height: 45px;
+                            width: 100%;
+                            text-align: center;
+                            color: black;
+                            border: none;
+                            background-color: #ffa200;
+                            cursor: pointer;
+                        }
+                    }
+                }
             }
 
             .close-popUp {
                 position: relative;
-                right: -5px;
+                right: 0;
                 top: 0;
                 .bix {
                     width: 100%;

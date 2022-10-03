@@ -303,7 +303,6 @@
                 }
             }
         }
-        
     }
     .shopList__popUp.active {
         right: 0;
@@ -560,6 +559,18 @@
             opacity: 1;
             visibility: visible;
             transition: 0.3s ease-in-out;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header__right {
+        .user {
+            display: none;
+        }
+
+        .wishlist__heart {
+            display: none;
         }
     }
 }

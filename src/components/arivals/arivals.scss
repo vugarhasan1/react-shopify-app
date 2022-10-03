@@ -1,0 +1,272 @@
+#arivals {
+    padding: 50px 0;
+    .flex-arivals {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        .arival {
+            width: 33%;
+            min-height: 350px;
+            height: auto;
+        }
+
+        .image {
+            position: relative;
+            cursor: pointer;
+            height: 100%;
+
+            .span1 {
+                position: absolute;
+                display: inline-block;
+                width: 100%;
+                height: 0;
+                top: 0;
+                left: 0;
+                background-color: #ffffff;
+                opacity: 0.1;
+                transition: 0.3s linear;
+                z-index: 2;
+            }
+
+            .span2 {
+                position: absolute;
+                display: inline-block;
+                width: 100%;
+                height: 0;
+                bottom: 0;
+                left: 0;
+                background-color: #ffffff;
+                opacity: 0.1;
+                transition: 0.3s linear;
+            }
+            .span3 {
+                position: absolute;
+                display: inline-block;
+                width: 0;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: #ffffff;
+                opacity: 0.1;
+                transition: 0.3s linear;
+            }
+            .span4 {
+                position: absolute;
+                display: inline-block;
+                width: 0;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: #ffffff;
+                opacity: 0.1;
+                transition: 0.3s linear;
+            }
+
+            &:hover .span1 {
+                height: 50%;
+                transition: 0.3s linear;
+            }
+            &:hover .span2 {
+                height: 50%;
+                transition: 0.3s linear;
+            }
+            &:hover .span3 {
+                width: 50%;
+                transition: 0.3s linear;
+            }
+            &:hover .span4 {
+                width: 50%;
+                transition: 0.3s linear;
+            }
+        }
+        .left-arival {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .arival-text {
+                position: absolute;
+                width: 100%;
+                top: 60px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                button {
+                    color: black;
+                    background-color: #ffa200;
+                    border: none;
+                    border-radius: 5px;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    font-weight: 500;
+                    width: 80px;
+                    height: 25px;
+                    text-align: center;
+                    line-height: 25px;
+                }
+                .content {
+                    color: white;
+                    font-size: 27px;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .center-arival {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+
+            .image {
+                height: 100%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .arival-text {
+                position: absolute;
+                width: 100%;
+                top: 60px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                color: white;
+                h2 {
+                    text-align: left;
+                    font-weight: 500;
+                }
+                .discount {
+                    text-align: left;
+                    display: block;
+                }
+            }
+            .top-arival {
+                height: 100%;
+                .arival-text {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    button {
+                        color: #559728;
+                        width: 140px;
+                        line-height: 35px;
+                        height: 35px;
+                        text-align: center;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: 0.2s linear;
+                        &:hover {
+                            color: black;
+                            background-color: #ffa200;
+                            transition: 0.2s linear;
+                        }
+                    }
+                }
+            }
+
+            .bottom-arival {
+                height: 100%;
+                .arival-text {
+                    width: 100%;
+                    display: flex;
+                    text-align: left;
+                    flex-direction: column;
+                    justify-content: flex-start;
+
+                    h2 {
+                        font-weight: 500;
+                        width: 230px;
+                    }
+
+                    span {
+                        display: block;
+                        width: 230px;
+                    }
+                }
+            }
+        }
+
+        .right-arival {
+            .image {
+                width: 100%;
+                height: 100%;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .arival-text {
+                position: absolute;
+                width: 100%;
+                top: 60px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                button {
+                    color: black;
+                    background-color: #efab35;
+                    border: none;
+                    border-radius: 5px;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    font-weight: 500;
+                    width: 120px;
+                    height: 25px;
+                    text-align: center;
+                    line-height: 25px;
+                    cursor: pointer;
+                }
+                .content {
+                    color: white;
+                    font-size: 27px;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            .center-arival {
+                display: none;
+            }
+
+            .left-arival {
+                width: 50%;
+            }
+
+            .right-arival {
+                width: 50%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 680px) {
+        .flex-arivals {
+            flex-direction: column;
+            .left-arival {
+                width: 100%;
+            }
+
+            .right-arival {
+                width: 100%;
+            }
+        }
+    }
+}

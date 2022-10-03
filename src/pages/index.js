@@ -7,6 +7,8 @@ import Blog from './blog/Blog';
 import Cart from './cart/Cart';
 import Details from './details/Details';
 import MainSlider from './slider/MainSlider';
+import Wishlist from './wishlist/Wishlist';
+
 
 export {
     About,
@@ -17,5 +19,6 @@ export {
     Blog,
     Cart,
     Details,
-    MainSlider
+    MainSlider,
+    Wishlist
 }

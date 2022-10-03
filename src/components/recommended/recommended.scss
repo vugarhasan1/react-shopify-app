@@ -1,0 +1,41 @@
+#recommended {
+    .main-recommended {
+        .capter {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+
+            h2{
+                font-weight: 400;
+            }
+
+            .allPro {
+                margin-right: 20px;
+                color: rgba(188, 182, 182, 0.784);
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 98%;
+                display: block;
+                margin: auto;
+                height: 2px;
+                top: 30px;
+                left: 0;
+                background-color: rgba(188, 182, 182, 0.784);
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 210px;
+                height: 2px;
+                background-color: #ffa200;
+                top: 30px;
+                left: 0;
+            }
+        }
+    }
+}

@@ -3,16 +3,93 @@
     height: auto;
     .main-details {
         display: flex;
-
+        justify-content: center;
+        gap: 20px;
         .left-img {
-            width: 40%;
-
+            flex: 1;
+            width: 300px;
             .image {
                 height: auto;
+                width: 100% !important;
                 image {
                     width: 100%;
                     height: 100%;
                     object-fit: contain;
+                }
+            }
+        }
+
+        .right-info {
+            // background-color: #fff9f9;
+            width: 100% !important;
+            width: 300px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-left: 20px;
+            flex: 1;
+            .title{
+                color: #0068c9;
+                font-size: 23px;
+                font-weight: 600;
+            }
+
+            .price{
+                color: red;
+                font-size: 20px;
+                font-weight: 500;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #6666;
+            }
+
+            .desc{
+                font-size: 14px;
+                line-height: 2;
+            }
+            
+            .btn{
+                button{
+                    line-height: 45px;
+                    width: 100%;
+                    text-align: center;
+                    color: black;
+                    border: none;
+                    background-color: #ffa200;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .main-details {
+            gap: 150px;
+
+            .left-img {
+                .image {
+                    height: auto;
+                    width: 100% !important;
+                    image {
+                        width: 300px !important;
+                        height: auto;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 940px) {
+        .main-details {
+            display: block;
+
+            .left-img {
+                width: 100%;
+                .image {
+                    img {
+                        width: 100%;
+                    }
                 }
             }
         }

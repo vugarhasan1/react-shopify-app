@@ -13,6 +13,13 @@ import TopSellingProducts from "./topSelling/TopSellingProducts";
 import SearchNavbar from "./searchNavbar/SearchNavbar";
 import BottomMenu from "./bottomMenu/BottomMenu";
 import AccordionFooter from "./accordionFooter/AccordionFooter";
+import TopFeatured from "./topFeatured/TopFeatured";
+import Arivals from "./arivals/Arivals";
+import Recommended from "./recommended/Recommended";
+import Brands from "./brands/Brands";
+
+
+
 
 
 
@@ -31,5 +38,9 @@ export{
     TopSellingProducts,
     SearchNavbar,
     BottomMenu,
-    AccordionFooter
+    AccordionFooter,
+    TopFeatured,
+    Arivals,
+    Recommended,
+    Brands,
 }

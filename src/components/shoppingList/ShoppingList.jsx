@@ -3,14 +3,29 @@ import './shoppingList.scss';
 import { BiX } from 'react-icons/bi'
 import { Link } from 'react-router-dom';
 import { cart_empty } from '../../assets';
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { removeItem, increase, decrease} from '../../features/cart/cartSlice';
 
 
 
 const ShoppingList = () => {
 
     const { cartItems } = useSelector((state) => state.cart)
+    const dispatch = useDispatch();
+
+
+    const handleRemoveItem=(item)=>{
+    dispatch(removeItem(item))
+    }
+
+    const handleDec=(item)=>{
+        dispatch(decrease(item))
+    }
+
+    const handleInc=(item)=>{
+        dispatch(increase(item))
+    }
+
 
     return (
         <section id="shoppingList">
@@ -44,14 +59,14 @@ const ShoppingList = () => {
                                             <div className="price__btns">
                                                 <div className="price">${item.price}</div>
                                                 <div className="btns">
-                                                    <button>-</button>
-                                                    <span>0</span>
-                                                    <button>+</button>
+                                                    <button onClick={()=>handleDec(item)}>-</button>
+                                                    <span>{item.cartQuantitiy}</span>
+                                                    <button onClick={()=>handleInc(item)}>+</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="remove-item">
-                                            <BiX className='bix'/>
+                                            <BiX className='bix' onClick={()=>handleRemoveItem(item)}/>
                                         </div>
                                     </div>
                                 ))
@@ -61,13 +76,13 @@ const ShoppingList = () => {
                             <div className="check-list-cart container">
                                 <div className="totalAmount">
                                     <p className="total">Total</p>
-                                    <p className="amount">$0.00</p>
+                                    <p className="amount">$0</p>
                                 </div>
                                 <div className="view-cart-btn">
-                                    <Link to='/cart' className='btnViewCart'>VIEW CART</Link>
+                                    <Link to='/cart' className='btnViewCart button'>VIEW CART</Link>
                                 </div>
                                 <div className="check-out-btn">
-                                    <button className='btnCheckout'>CHECK OUT</button>
+                                    <button className='btnCheckout button'>CHECK OUT</button>
                                 </div>
 
                             </div>

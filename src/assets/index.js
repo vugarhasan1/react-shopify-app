@@ -33,8 +33,15 @@ import slide1 from './slide-img1.jpg';
 import slide2 from './slide-img2.jpg';
 import slide3 from './slide-img3.jpg';
 import cart_image from './cart_image.jpg';
-
-
+import top_arival from './top_arival.png';
+import laptop_ultra from './laptop-ultra.png';
+import sport_edition from './sport-edition.png';
+import brand1 from './brand1.png'
+import brand2 from './brand2.png'
+import brand3 from './brand3.png'
+import brand4 from './brand4.png'
+import brand5 from './brand5.png'
+import brand6 from './brand6.png'
 
 
 
@@ -74,5 +81,14 @@ export {
     slide1,
     slide2,
     slide3,
-    cart_image
+    cart_image,
+    top_arival,
+    laptop_ultra,
+    sport_edition,
+    brand1,
+    brand2,
+    brand3,
+    brand4,
+    brand5,
+    brand6
 }

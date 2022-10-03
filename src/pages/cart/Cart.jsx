@@ -4,14 +4,13 @@ import { cart_image } from '../../assets';
 import { Link } from 'react-router-dom';
 import { BiX } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCart, removeItem, increase, decrease} from '../../features/cart/cartSlice';
+import { clearCart, removeItem, increase, decrease } from '../../features/cart/cartSlice';
 
 const Cart = () => {
 
-    const { cartItems, cartTotalAmount} = useSelector((store) => store.cart);
+    const { cartItems, totalAmount } = useSelector((store) => store.cart);
+    // const cart = useSelector((store)=>store.cart)
     const dispatch = useDispatch();
-
-
 
 
 
@@ -76,7 +75,9 @@ const Cart = () => {
                                                 </div>
                                                 <p className="item-title">{item.title}</p>
                                             </div>
-                                            <p className="item-price">${item.price}</p>
+                                            <p className="item-price">
+                                                ${item.price}
+                                            </p>
                                             <div className="item-quantity">
                                                 <button onClick={() => decreaseItem(item)}>-</button>
                                                 <span>{item.cartQuantitiy}</span>
@@ -106,11 +107,11 @@ const Cart = () => {
                                 <h3 className='totals'>Cart totals</h3>
                                 <div className="sub-total">
                                     <p>Subtotal:</p>
-                                    <span className="sub-total-price">${cartTotalAmount}</span>
+                                    <span className="sub-total-price">${totalAmount}</span>
                                 </div>
                                 <div className="total">
                                     <p>Total:</p>
-                                    <span className="total-price">${cartTotalAmount}</span>
+                                    <span className="total-price">$0</span>
                                 </div>
                                 <span className="taxes">Taxes and shipping calculated at checkout</span>
                             </div>

@@ -8,12 +8,19 @@
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    box-shadow: -4px -14px 4px -3px rgba(222, 221, 221, 0.68);
+    -webkit-box-shadow: -4px -14px 4px -3px rgba(222, 221, 221, 0.68);
+    -moz-box-shadow: -4px -14px 4px -3px rgba(222, 221, 221, 0.68);
     z-index: 99;
     .bottomMenuWrapper {
         .menu__icons {
             display: flex;
             justify-content: space-around;
             align-items: center;
+
+            .icon{
+                cursor: pointer;
+            }
         }
     }
 }

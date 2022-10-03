@@ -1,0 +1,103 @@
+#brands {
+    .slider-brands {
+        .slider {
+            position: relative;
+            padding: 0 30px;
+
+            .slick-prev {
+                &::before {
+                    content: "<";
+                    position: absolute;
+                    display: block;
+                    width: 45px;
+                    height: 45px;
+                    line-height: 40px;
+                    text-align: center;
+                    font-weight: 500;
+                    font-size: 22px;
+                    border-radius: 100%;
+                    // background-color: #666;
+                    background-color: #ffa200;
+                    color: white;
+                    top: -50%;
+                    left: 30px;
+                    transform: translateX(-50%);
+                    transition: 0.2s linear;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+
+            .slick-next {
+                &::after {
+                    content: ">";
+                    position: absolute;
+                    display: block;
+                    width: 45px;
+                    height: 45px;
+                    line-height: 40px;
+                    text-align: center;
+                    font-weight: 500;
+                    font-size: 22px;
+                    border-radius: 100%;
+                    // background-color: #666;
+                    background-color: #ffa200;
+                    color: white;
+                    top: -50%;
+                    right: 0;
+                    transform: translateX(-50%);
+                    transition: 0.2s linear;
+                    opacity: 0;
+                    visibility: hidden;
+                    // z-index: 99;
+                }
+            }
+
+            &:hover .slick-prev::before {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &:hover .slick-next::after {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    // .slick-prev {
+    //     display: block !important;
+    //     text-align: center;
+    //     width: 50px;
+    //     height: 50px;
+    //     border-radius: 100%;
+    //     background-color: #ffa200;
+    //     color: white;
+    //     left: 0px;
+    //     top: 50%;
+    //     transform: translateY(-50%) !important;
+    //     opacity: 1 !important;
+    //     transition: 0.3s linear;
+    //     z-index: 3;
+    // }
+}
+
+// .arrowsBrand {
+//     display: inline-block;
+//     width: 100px;
+//     height: 30px;
+//     background-color: red;
+//     .slick-prev button {
+//         position: relative;
+//         left: 100px;
+//         border: none;
+//         // background: rgba(255, 255, 255, 0.3);
+//         background-color: #ffa200;
+//         cursor: pointer;
+//         display: block;
+//         height: 40px;
+//         width: 40px;
+//         border-radius: 4.5px;
+//         display: block;
+//     }
+// }

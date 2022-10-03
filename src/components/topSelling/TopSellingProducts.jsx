@@ -5,13 +5,18 @@ import MainSlider from '../../pages/slider/MainSlider';
 
 
 
-const TopSellingProducts = () => {
+const TopSellingProducts = (props) => {
+    // const [data, setData] = useState(products);
+    const findLaptop = () => {
+
+    }
+
     return (
-        <section className='topSellingProducts container'>
+        <section id='topSellingProducts' className='container'>
             <div className="capter__products">
                 <h3 className="capterOfDeal">Top Selling Products</h3>
                 <div className="products-type">
-                    <p className="laptop">Laptop & Computer</p>
+                    <p className="laptop" onClick={() => findLaptop()}>Laptop & Computer</p>
                     <p className="cellphone">Cellphone</p>
                     <p className="laptop">Speakers & Audio</p>
                     <p className="laptop">Vido Game</p>
@@ -19,7 +24,7 @@ const TopSellingProducts = () => {
             </div>
 
             <div className="top_selling_slider">
-                <MainSlider/>
+                <MainSlider />
             </div>
         </section>
     )

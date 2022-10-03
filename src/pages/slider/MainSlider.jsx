@@ -2,22 +2,53 @@ import React, { useState } from 'react'
 import './mainSlider.scss';
 import Slider from "react-slick";
 import { addToCart } from '../../features/cart/cartSlice';
+import { addToWish } from '../../features/wishlist/wishSlice';
 import { products } from '../../data/products';
 import { useNavigate, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { BiLayer, BiShow, BiHeart, BiX } from 'react-icons/bi'
+import { useDispatch } from 'react-redux';
+import { BiLayer, BiShow, BiHeart, BiX, BiStar } from 'react-icons/bi'
 import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
+
 
 const MainSlider = () => {
 
   const [view, setView] = useState(false);
+  const [data, setData] = useState(products);
 
-  const { cartItems } = useSelector((store) => store.cart)
- 
-
+  // const { cartItems } = useSelector((store) => store.cart)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
+  // handleAddToCart
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product))
+    navigate("/")
+  }
+
+  // handleShow()
+  const handleShow = (id) => {
+    setView(!view);
+    const product = products.find((item) => item.id === id);
+    setData(product)
+    // alert(id)
+  }
+
+  const handleClose = () => {
+    setView(!view)
+  }
+
+  ///handleWishlist
+  const handleAddToWish = (product) => {
+    dispatch(addToWish(product))
+    console.log(product);
+  }
+
+
+
+
+
+  // carusel
   const settings = {
     dots: false,
     infinite: true,
@@ -70,30 +101,16 @@ const MainSlider = () => {
     ]
   };
 
-  // handleAddToCart
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-    navigate("/")
-  }
 
-  const handleShow = (id) => {
-    navigate(`/products/${id}`)
-    setView(!view);
-
-  }
-  const handleClose = () => {
-    setView(!view)
-  }
 
   return (
     <main id='mainSlider'>
-
       <div className="products__slider">
         <Slider {...settings} className='slider'>
           {
             products.map((product, index) => (
               <Card className='card' key={index} >
-                <Typography >
+                <Typography className='card-image'>
                   <CardMedia
                     component="img"
                     image={product.image}
@@ -105,32 +122,106 @@ const MainSlider = () => {
 
                   </Typography>
                   <Typography className='card-start'>
-                    {product.star}
+                    <BiStar />
+                    <BiStar />
+                    <BiStar />
+                    <BiStar />
+                    <BiStar />
                   </Typography>
-                  <Typography>{product.price}</Typography>
+                  <Typography>
+                    <span className='normal-price'>${product.price}</span>
+                    <span className='sale'><del>{product.sale}</del></span>
+                  </Typography>
+
                   <span className='redLine'></span>
                   <div className="sold-available">
                     <span className="sold">Sold: 85</span>
                     <span className="available" >Available: 15</span>
                   </div>
-                  <Button className='btn-card' onClick={() => handleAddToCart(product)} disabled={product.price === '123.00'}>
-                    {product.price === '210.00' ? "OUT OF STOCKS" : "ADD TO CARD"}
+                  <Button className='btn-card' onClick={() => handleAddToCart(product)} disabled={product.available === false}>
+                    {product.available === false ? "OUT OF STOCKS" : "ADD TO CARD"}
                   </Button>
                 </CardContent>
                 <div className="icons">
-                  <div className="show icon bishow" onClick={() => handleShow(index)} ><BiShow /></div>
+                  <div className="show icon bishow" onClick={() => handleShow(product.id)} ><BiShow /></div>
                   <div className="compare icon bilayer" ><BiLayer /></div>
-                  <div className="wishlist icon biheart" ><BiHeart /></div>
+                  <div className="wishlist icon biheart" onClick={()=>handleAddToWish(product)}><BiHeart /></div>
                 </div>
+                <span className='status-hot'
+                  style={
+                    product.status === 'hot'
+                      ? { backgroundColor: 'red' }
+                      : { backgroundColor: 'transparent' }
+                  }>
+                  {
+                    product.status === 'hot' ? 'HOT' : ''
+                  }
+                </span>
+
+                <span className='status-new'
+                  style={
+                    product.status === 'new'
+                      ? { backgroundColor: '#5AAB19' }
+                      : { backgroundColor: 'transparent' }
+                  }>
+                  {
+                    product.status === 'new' ? 'NEW' : ''
+                  }
+                </span>
+
+                <span className='product-percent'
+                  style={
+                    product.percent
+                      ? { backgroundColor: '#5AAB19' }
+                      : { backgroundColor: 'transparent' }
+                  }>
+                  {
+                    product.percent ? `${product.percent}` : ''
+                  }
+                </span>
+
+
                 <Link className="card-overlay" to={`/products/${product.id}`}> </Link>
               </Card>
             ))
           }
         </Slider>
       </div>
+
       <div className={view ? 'viewPopUp show' : 'viewPopUp'}>
         <div className="content">
           <div className="product-info">
+            <div className="left-img">
+              <div className="image">
+                <img src={data.image} alt="img" />
+              </div>
+            </div>
+            <div className="right-info">
+              <p className="title">{data.title}</p>
+              <div className="spans">
+                <span className="stars">
+                  <BiStar />
+                  <BiStar />
+                  <BiStar />
+                  <BiStar />
+                  <BiStar />
+                </span> /
+                <span className="no-reviews">No reviews</span> /
+                <span>Write a review</span>
+              </div>
+              <div className="discount">Discount: $10.00 (5%)</div>
+              <p className="price">
+                {data.price}
+              </p>
+
+              <div className="desc">
+                {data.description}
+              </div>
+
+              <div className="btn">
+                <button onClick={() => handleAddToCart(data)}>{data.price === '210.00' ? "OUT OF STOCKS " : "ADD TO CARD"}</button>
+              </div>
+            </div>
           </div>
           <div className="close-popUp" onClick={() => handleClose(setView(!view))}>
             <BiX className='bix' />
