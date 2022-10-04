@@ -4,34 +4,36 @@ import { BiX } from 'react-icons/bi'
 import { Link } from 'react-router-dom';
 import { cart_empty } from '../../assets';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, increase, decrease} from '../../features/cart/cartSlice';
+import { removeItem, increase, decrease } from '../../features/cart/cartSlice';
 
 
 
 const ShoppingList = () => {
 
-    const { cartItems } = useSelector((state) => state.cart)
+    const cart = useSelector((state) => state.cart)
     const dispatch = useDispatch();
 
+   
 
-    const handleRemoveItem=(item)=>{
-    dispatch(removeItem(item))
+
+    const handleRemoveItem = (item) => {
+        dispatch(removeItem(item))
     }
 
-    const handleDec=(item)=>{
+    const handleDec = (item) => {
         dispatch(decrease(item))
     }
 
-    const handleInc=(item)=>{
+    const handleInc = (item) => {
         dispatch(increase(item))
     }
 
 
     return (
         <section id="shoppingList">
-           
+
             {
-                cartItems < 1 ?
+                cart.cartItems < 1 ?
                     (
                         <div className="empty__cart">
                             <div className="image">
@@ -40,7 +42,7 @@ const ShoppingList = () => {
                             <p>Your cart is empty</p>
 
                             <Link to='/' className='return'>
-                               Return To Shop
+                                Return To Shop
                             </Link>
                         </div>
 
@@ -48,7 +50,7 @@ const ShoppingList = () => {
                     (
                         <div className='shop-products-list '>
                             {
-                                cartItems.map((item, index) => (
+                                cart.cartItems.map((item, index) => (
                                     <div key={index} className='products-card'>
                                         <div className="card-img">
                                             <img src={item.image} alt="" />
@@ -57,16 +59,16 @@ const ShoppingList = () => {
                                         <div className="pro-title-price">
                                             <Link to='/cart' className="title">{item.title}</Link>
                                             <div className="price__btns">
-                                                <div className="price">${item.price}</div>
+                                                <div className="price">${(item.price * item.cartQuantitiy).toFixed(2)}</div>
                                                 <div className="btns">
-                                                    <button onClick={()=>handleDec(item)}>-</button>
+                                                    <button onClick={() => handleDec(item)}>-</button>
                                                     <span>{item.cartQuantitiy}</span>
-                                                    <button onClick={()=>handleInc(item)}>+</button>
+                                                    <button onClick={() => handleInc(item)}>+</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="remove-item">
-                                            <BiX className='bix' onClick={()=>handleRemoveItem(item)}/>
+                                            <BiX className='bix' onClick={() => handleRemoveItem(item)} />
                                         </div>
                                     </div>
                                 ))
@@ -76,7 +78,7 @@ const ShoppingList = () => {
                             <div className="check-list-cart container">
                                 <div className="totalAmount">
                                     <p className="total">Total</p>
-                                    <p className="amount">$0</p>
+                                    <p className="amount">${cart.total}</p>
                                 </div>
                                 <div className="view-cart-btn">
                                     <Link to='/cart' className='btnViewCart button'>VIEW CART</Link>

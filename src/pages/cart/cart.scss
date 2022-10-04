@@ -279,4 +279,10 @@
             }
         }
     }
+
+    @media screen and (max-width: 1200px) {
+        .cart__info{
+            flex-direction: column;
+        }
+    }
 }

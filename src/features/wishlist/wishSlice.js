@@ -19,9 +19,10 @@ const wishSlice = createSlice({
                     wishQuantitiy: state.wishItems[indexOfItem].wishQuantitiy + 1
                 }
             } else {
-                const uniqueProduct = { ...action.payload, wishQuantitiy: 1 }
-                state.wishItems.push(uniqueProduct)
+                state.wishItems.push({ ...action.payload, wishQuantitiy: 1 })
             }
+
+            localStorage.setItem('wishItems', JSON.stringify(state.wishItems))
 
         },
         deleteWish: (state, action) => {
@@ -36,9 +37,17 @@ const wishSlice = createSlice({
                 return state;
             });
         },
+
+        wishListAmount(state) {
+            let amount = 0;
+            state.wishItems.forEach((item) => {
+                amount += item.amount;
+            });
+            state.amount = amount;
+        },
     },
 });
 
-export const { addToWish, deleteWish} = wishSlice.actions;
+export const { addToWish, deleteWish, wishListAmount} = wishSlice.actions;
 
 export default wishSlice.reducer;

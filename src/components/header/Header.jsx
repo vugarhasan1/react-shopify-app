@@ -15,15 +15,19 @@ import { products } from '../../data/products';
 
 const Header = () => {
 
-    const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+    // const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+    const { amount } = useSelector((state) => state.cart);
+
+    const wish = useSelector((state) => state.wish);
+
+    console.log(wish);
 
     const [headerMenu, setHeaderMenu] = useState(false);
     const [expanded, setExpanded] = useState(false);
     const [popUp, setPopUp] = useState(true);
     const [wishList, setWishList] = useState(false);
     const [shopList, setShopList] = useState(false);
-
-    const [inp, setInp] = useState(products)
+    // const [inp, setInp] = useState(products)
 
     // handleChane(accordion)
     const handleChange = (panel) => (event, isExpanded) => {
@@ -56,7 +60,7 @@ const Header = () => {
     const handleSearch = (e) => {
         const searchItem = e.target.value;
         const searchProduct = products.filter(item => item.title.toLowerCase().includes(searchItem.toLowerCase()))
-        setInp(searchProduct)
+        // setInp(searchProduct)
 
         console.log(searchProduct);
     }
@@ -292,7 +296,7 @@ const Header = () => {
                     {/* wishlist */}
                     <div className="navbar__wishlist" onClick={handleWishList}>
                         <div className="wishlist__heart navbar__icons">
-                            <BiHeart className='biHeart' /> <sup>0</sup>
+                            <BiHeart className='biHeart' /> <sup>{wish.amount}</sup>
                         </div>
                         <div className="favorite">
                             <span className="top-span">Favorite</span>
@@ -303,7 +307,7 @@ const Header = () => {
                     {/* shoplist */}
                     <div className='navbar__shopList' onClick={handleShopList}>
                         <div className="shopCart navbar__icons">
-                            <BiShoppingBag /> <sup>{totalQuantity}</sup>
+                            <BiShoppingBag /> <sup>{amount}</sup>
                         </div>
                         <div className="yourCart">
                             <span className='top-span'>Your Cart</span>

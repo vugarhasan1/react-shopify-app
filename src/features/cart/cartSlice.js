@@ -1,14 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-localStorage.clear()
+// localStorage.clear()
 
 const initialState = {
     cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
-    totalAmount: 0,
-    totalQuantity: 0,
+    amount: 0,
+    total: 0,
 };
-
 
 
 const cartSlice = createSlice({
@@ -26,10 +25,9 @@ const cartSlice = createSlice({
                 const uniqueProduct = { ...action.payload, cartQuantitiy: 1 }
                 state.cartItems.push(uniqueProduct)
             }
-
+           
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
-            // ////////////////////////////////////////////////////////////////////
-            
+
         },
         clearCart: (state) => {
             state.cartItems = [];
@@ -52,7 +50,7 @@ const cartSlice = createSlice({
             if (state.cartItems[cartItem].cartQuantitiy >= 1) {
                 state.cartItems[cartItem].cartQuantitiy += 1;
             }
-            localStorage.getItem("cartItems", JSON.stringify(state.cartItems));
+            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
         decrease: (state, action) => {
             const cartItem = state.cartItems.findIndex((item) => item.id === action.payload.id);
@@ -64,32 +62,20 @@ const cartSlice = createSlice({
         },
 
         calculateTotals(state) {
-            let { price, quantity } = state.cartItems.reduce(
-
-                (cartTotal, cartItem) => {
-                    const { price, cartQuantity } = cartItem;
-                    const itemTotal = price * cartQuantity;
-
-                    cartTotal.total += itemTotal;
-                    cartTotal.quantity += cartQuantity;
-
-                    return cartTotal;
-                },
-                {
-                    price: 0,
-                    quantity: 0,
-                }
-            );
-            price = parseFloat(price.toFixed(2));
-            state.totalQuantity = quantity;
-            state.totalAmount = price;
-
+            let amount = 0;
+            let total = 0;
+            state.cartItems.forEach((item) => {
+                amount += item.amount;
+                total += item.amount * item.price;
+            });
+            state.amount = amount;
+            state.total = total;
         },
     },
 });
 
 
 
-export const { addToCart, clearCart, removeItem, increase, decrease} = cartSlice.actions;
+export const { addToCart, clearCart, removeItem, increase, decrease, calculateTotals } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -8,7 +8,7 @@ import Cart from './cart/Cart';
 import Details from './details/Details';
 import MainSlider from './slider/MainSlider';
 import Wishlist from './wishlist/Wishlist';
-
+import Favorite from './favorite/Favorite';
 
 export {
     About,
@@ -20,5 +20,6 @@ export {
     Cart,
     Details,
     MainSlider,
-    Wishlist
+    Wishlist,
+    Favorite
 }

@@ -13,11 +13,14 @@ import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material'
 const MainSlider = () => {
 
   const [view, setView] = useState(false);
+  // const [wish, setWish] = useState(false);
   const [data, setData] = useState(products);
 
   // const { cartItems } = useSelector((store) => store.cart)
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
 
 
   // handleAddToCart
@@ -145,7 +148,11 @@ const MainSlider = () => {
                 <div className="icons">
                   <div className="show icon bishow" onClick={() => handleShow(product.id)} ><BiShow /></div>
                   <div className="compare icon bilayer" ><BiLayer /></div>
-                  <div className="wishlist icon biheart" onClick={()=>handleAddToWish(product)}><BiHeart /></div>
+                  <div
+                    className='wishlist icon biheart'
+                    onClick={() => handleAddToWish(product)}>
+                    <BiHeart/>
+                  </div>
                 </div>
                 <span className='status-hot'
                   style={
